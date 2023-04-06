@@ -16,7 +16,7 @@
             transform: translate3d(0, 0, 0);
         }
     </style>
-    <link rel="shortcut icon" type="image/x-icon" href="<?=SITE_TEMPLATE_PATH?>/local/templates/personal/images/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="<?=SITE_TEMPLATE_PATH?>/images/favicon.ico" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <?$APPLICATION->ShowMeta("robots")?>
     <?$APPLICATION->ShowMeta("keywords")?>
@@ -41,10 +41,10 @@
     <link rel="preload" as="font" href="<?=SITE_TEMPLATE_PATH?>/fonts/Gilroy-Regular.woff" type="font/woff" crossorigin="anonymous">
     <link rel="preload" as="font" href="<?=SITE_TEMPLATE_PATH?>/fonts/Gilroy-SemiBold.woff" type="font/woff" crossorigin="anonymous">
 
-    <script src="<?=SITE_TEMPLATE_PATH?>/js/runtime.js" crossorigin="anonymous" defer="" integrity="sha384-1kZU+7Y/rePbjXekSg2yidvgAQpdHi6ah8LB9oOik2CqM+6sARtjVdj/yBiGJmXL"></script>
-    <script src="<?=SITE_TEMPLATE_PATH?>/js/896.js" crossorigin="anonymous" defer="" integrity="sha384-H/1Tx5g551a4rdfYwpo7o9WGyKyk/ZmDQFNH8WrZPO40baQ8NwEtO6G62SzWS76k"></script>
-    <script src="<?=SITE_TEMPLATE_PATH?>/js/899.js" crossorigin="anonymous" defer="" integrity="sha384-J26vQ0WkOAJLsvZz1g8xVFneYV2Ih1g25qg1fDTi8chUAsMIOHVxALxe+kQjvM99"></script>
-    <script src="<?=SITE_TEMPLATE_PATH?>/js/app.js" crossorigin="anonymous" defer="" integrity="sha384-m0Yeg4Ivq2S1CcbkU/Kj8MMdfUoX2rdS5pIxMGyd9PkZXuHMCBkw+nRkxzYT3MD5"></script>
+    <script src="<?=SITE_TEMPLATE_PATH?>/js/runtime.js" crossorigin="anonymous" defer=""></script>
+    <script src="<?=SITE_TEMPLATE_PATH?>/js/896.js" crossorigin="anonymous" defer=""></script>
+    <script src="<?=SITE_TEMPLATE_PATH?>/js/899.js" crossorigin="anonymous" defer=""></script>
+    <script src="<?=SITE_TEMPLATE_PATH?>/js/app.js" crossorigin="anonymous" defer=""></script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="<?=SITE_TEMPLATE_PATH?>/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="<?=SITE_TEMPLATE_PATH?>/images/favicon-32x32.png" sizes="32x32">
@@ -488,17 +488,27 @@
                     </div>
                 </a>
             </div>
-            <div class="ms-2 d-none d-md-flex align-items-center">
-                <div class="header-nav dropdown d-flex align-items-center">
-                    <button class="header-nav-btn flex-shrink-0" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-bs-display="static">
-                                <span class="d-none d-lg-inline">
-                                    <svg class="c-icon c-icon-burger " width="24" height="24">
-                                        <use xlink:href="#icon-burger"></use>
-                                    </svg>
-                                </span>
-                        <span class="fw-bold align-middle">Меню</span>
-                    </button>
-                    <div class="dropdown-menu p-0">
+
+
+    <?$APPLICATION->IncludeComponent("bitrix:menu", "menu", Array(
+	"ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+		"CHILD_MENU_TYPE" => "top",	// Тип меню для остальных уровней
+		"DELAY" => "N",	// Откладывать выполнение шаблона меню
+		"MAX_LEVEL" => "1",	// Уровень вложенности меню
+		"MENU_CACHE_GET_VARS" => array(	// Значимые переменные запроса
+			0 => "",
+		),
+		"MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+		"MENU_CACHE_TYPE" => "A",	// Тип кеширования
+		"MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+		"MENU_THEME" => "black",	// Тема меню
+		"ROOT_MENU_TYPE" => "top",	// Тип меню для первого уровня
+		"USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+	),
+	false
+);?>
+
+                    <!--div class="dropdown-menu p-0">
                         <div class="d-flex align-items-stretch">
                             <div class="header-nav-side p-2">
                                 <div class="d-flex flex-column align-items-stretch">
@@ -604,7 +614,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div-->
+
                 </div>
             </div>
             <div class="d-flex flex-fill align-items-center justify-content-end">
