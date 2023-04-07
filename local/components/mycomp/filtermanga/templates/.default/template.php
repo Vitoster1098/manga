@@ -1,5 +1,4 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
-
 <div class="col-12 col-lg-4 col-xl-3">
     <form class="filter filter-vertical" id="filter" action="/explore" method="get" novalidate="" data-target="filter-form.form">
         <div class="filter-content">
@@ -15,12 +14,15 @@
                     </div>
                 </div>
                 <div class="filter-scroller">
+
                     <filter-group class="filter-group" id="filter_genres">
                         <div class="filter-header">
                             <div class="filter-title"><legend class="col-form-label required">Жанры</legend></div>
                             <div class="filter-options">
                                 <button type="button" class="no-focus filter-options-collapse" data-action="click:filter-group#collapse">
-                                    <svg class="c-icon c-icon-m-slider-right" width="12" height="15">
+
+
+                                    <svg class="c-icon c-icon-m-slider-right " width="12" height="15">
                                         <use xlink:href="#icon-m-slider-right"></use>
                                     </svg>
                                 </button>
@@ -29,9 +31,11 @@
                         <div class="filter-body">
                             <filter-input class="filter-input" aria-owns="filter_genres_values" data-target="filter-group.filterInput" data-morphdom-ignore="" hidden="">
                                 <input-reset class="d-block position-relative" event-type="change">
-                                    <input class="form-control pe-4" type="text" placeholder="Найти..." data-target="input-reset.input" autocomplete="off" spellcheck="false" />
+                                    <input class="form-control pe-4" type="text" placeholder="Найти..." data-target="input-reset.input" autocomplete="off" spellcheck="false">
                                     <div class="position-absolute py-1 px-1 form-control-clear" data-target="input-reset.button" data-action="click:input-reset#reset" hidden="">
-                                        <svg class="c-icon c-icon-cross" width="12" height="12">
+
+
+                                        <svg class="c-icon c-icon-cross " width="12" height="12">
                                             <use xlink:href="#icon-cross"></use>
                                         </svg>
                                     </div>
@@ -39,14 +43,14 @@
                             </filter-input>
                             <div class="filter-fieldset">
                                 <tri-state>
-                                    <input type="hidden" id="filter_genres_excludes" name="filter[genres][excludes]" data-target="tri-state.excludes" />
-                                    <?if (!empty($arResult["GENRES"])):?>
-                                    <?foreach ($arResult["GENRES"] as $arItem):?>
+                                    <input type="hidden" id="filter_genres_excludes" name="filter[genres][excludes]" data-target="tri-state.excludes">
                                     <div id="filter_genres_values" data-filter-list="true">
+                                        <?if(!empty($arResult["GENRES"])):?>
+                                        <?foreach ($arResult["GENRES"] as $arItem):?>
                                         <div class="filter-item" data-targets="filter-group.items" hidden="">
                                             <div class="form-check">
-                                                <input type="checkbox" id="filter_genres_values_bezumie" name="filter[genres][values][]" class="form-check-input" value="bezumie" />
-                                                <label class="form-check-label" for="filter_genres_values_bezumie">Безумие</label>
+                                                <input type="checkbox" id="filter_genres_values_<?=$arItem['CODE']?>" name="<?=$arItem['CODE']?>" class="form-check-input" value="<?=$arItem['CODE']?>">
+                                                <label class="form-check-label" for="filter_genres_values_<?=$arItem['CODE']?>"><?=$arItem['NAME']?></label>
                                             </div>
                                         </div>
                                         <?endforeach;?>
@@ -56,8 +60,7 @@
                                         </div>
                                         <?endif;?>
                                     </div>
-                                </tri-state>
-                            </div>
+                                </tri-state></div>
                             <div class="mt-2">
                                 <button class="fw-bold px-0 link-primary" type="button" data-action="click:filter-group#show" data-target="filter-group.showButton">
                                     Посмотреть все

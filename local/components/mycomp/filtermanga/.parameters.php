@@ -32,7 +32,7 @@ $arComponentParameters = [
     // группы в левой части окна
     "GROUPS" => [
         "SETTINGS" => [
-            "NAME" => Loc::getMessage('EXAMPLE_COMPSIMPLE_PROP_SETTINGS'),
+            "NAME" => GetMessage('EXAMPLE_COMPSIMPLE_PROP_SETTINGS'),
             "SORT" => 550,
         ],
     ],
@@ -41,36 +41,84 @@ $arComponentParameters = [
         // Произвольный параметр типа СПИСОК
         "IBLOCK_TYPE" => [
             "PARENT" => "SETTINGS",
-            "NAME" => Loc::getMessage('EXAMPLE_COMPSIMPLE_PROP_IBLOCK_TYPE'),
+            "NAME" => GetMessage('EXAMPLE_COMPSIMPLE_PROP_IBLOCK_TYPE'),
             "TYPE" => "LIST",
             "ADDITIONAL_VALUES" => "Y",
             "VALUES" => $arIBlockType,
             "REFRESH" => "Y"
         ],
-        "IBLOCK_ID" => [
-            "PARENT" => "SETTINGS",
-            "NAME" => Loc::getMessage('EXAMPLE_COMPSIMPLE_PROP_IBLOCK_ID'),
-            "TYPE" => "LIST",
-            "ADDITIONAL_VALUES" => "Y",
-            "VALUES" => $arIBlock,
-            "REFRESH" => "Y"
-        ],
         // Произвольный параметр типа СТРОКА
-        "PROP_COUNT" => [
+        /*"PROP_COUNT" => [
             "PARENT" => "SETTINGS",
-            "NAME" => Loc::getMessage('EXAMPLE_COMPSIMPLE_PROP_COUNT'),
+            "NAME" => GetMessage('EXAMPLE_COMPSIMPLE_PROP_COUNT'),
             "TYPE" => "INT",
             "MULTIPLE" => "N",
             "DEFAULT" => "20",
             "COLS" => 25
-        ],
+        ],*/
         //Тэги
         "TAGS" => [
             "PARENT" => "SETTINGS",
-            "NAME" => Loc::getMessage('EXAMPLE_COMPSIMPLE_TAGS'),
+            "NAME" => GetMessage('EXAMPLE_COMPSIMPLE_TAGS'),
             "TYPE" => "LIST",
             "ADDITIONAL_VALUES" => "Y",
-            "VALUES" => $arTags,
+            "VALUES" => $arIBlock,
+            "REFRESH" => "Y",
+        ],
+        "GENRES" => [
+            "PARENT" => "SETTINGS",
+            "NAME" => GetMessage('EXAMPLE_COMPSIMPLE_GENRES'),
+            "TYPE" => "LIST",
+            "ADDITIONAL_VALUES" => "Y",
+            "VALUES" => $arIBlock,
+            "REFRESH" => "Y",
+        ],
+        "COUNTRIES" => [
+            "PARENT" => "SETTINGS",
+            "NAME" => GetMessage('EXAMPLE_COMPSIMPLE_COUNTRIES'),
+            "TYPE" => "LIST",
+            "ADDITIONAL_VALUES" => "Y",
+            "VALUES" => $arIBlock,
+            "REFRESH" => "Y",
+        ],
+        "CATEGORIES" => [
+            "PARENT" => "SETTINGS",
+            "NAME" => GetMessage('EXAMPLE_COMPSIMPLE_CATEGORIES'),
+            "TYPE" => "LIST",
+            "ADDITIONAL_VALUES" => "Y",
+            "VALUES" => $arIBlock,
+            "REFRESH" => "Y",
+        ],
+        "AGE" => [
+            "PARENT" => "SETTINGS",
+            "NAME" => GetMessage('EXAMPLE_COMPSIMPLE_AGE'),
+            "TYPE" => "LIST",
+            "ADDITIONAL_VALUES" => "Y",
+            "VALUES" => $arIBlock,
+            "REFRESH" => "Y",
+        ],
+        "STATUS" => [
+            "PARENT" => "SETTINGS",
+            "NAME" => GetMessage('EXAMPLE_COMPSIMPLE_STATUS'),
+            "TYPE" => "LIST",
+            "ADDITIONAL_VALUES" => "Y",
+            "VALUES" => $arIBlock,
+            "REFRESH" => "Y",
+        ],
+        "TRANSLATE_STATUS" => [
+            "PARENT" => "SETTINGS",
+            "NAME" => GetMessage('EXAMPLE_COMPSIMPLE_TRANSLATE_STATUS'),
+            "TYPE" => "LIST",
+            "ADDITIONAL_VALUES" => "Y",
+            "VALUES" => $arIBlock,
+            "REFRESH" => "Y",
+        ],
+        "OUTPUT_FORMATS" => [
+            "PARENT" => "SETTINGS",
+            "NAME" => GetMessage('EXAMPLE_COMPSIMPLE_FORMAT_OUT'),
+            "TYPE" => "LIST",
+            "ADDITIONAL_VALUES" => "Y",
+            "VALUES" => $arIBlock,
             "REFRESH" => "Y",
         ],
         // Настройки кэширования
