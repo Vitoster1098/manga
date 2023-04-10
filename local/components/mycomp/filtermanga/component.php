@@ -38,7 +38,7 @@ if(!empty($arParams["GENRES"])) {
         $arResult["GENRES"][] = [
             "ID" => $fields['ID'],
             "NAME" => $fields['NAME'],
-            "CODE" => translit($fields['NAME']),
+            "CODE" => strtolower(translit($fields['NAME'])),
         ];
     }
     unset($res, $ar_result);
@@ -58,7 +58,7 @@ if(!empty($arParams["TAGS"])) {
         $arResult["TAGS"][] = [
             "ID" => $fields['ID'],
             "NAME" => $fields['NAME'],
-            "CODE" => translit($fields['NAME']),
+            "CODE" => strtolower(translit($fields['NAME'])),
         ];
     }
     unset($res, $ar_result);
@@ -78,7 +78,7 @@ if(!empty($arParams["CATEGORIES"])) {
         $arResult["CATEGORIES"][] = [
             "ID" => $fields['ID'],
             "NAME" => $fields['NAME'],
-            "CODE" => translit($fields['NAME']),
+            "CODE" => strtolower(translit($fields['NAME'])),
         ];
     }
     unset($res, $ar_result);
@@ -98,7 +98,7 @@ if(!empty($arParams["COUNTRIES"])) {
         $arResult["COUNTRIES"][] = [
             "ID" => $fields['ID'],
             "NAME" => $fields['NAME'],
-            "CODE" => translit($fields['NAME']),
+            "CODE" => strtolower(translit($fields['NAME'])),
         ];
     }
     unset($res, $ar_result);
@@ -118,7 +118,7 @@ if(!empty($arParams["AGE"])) {
         $arResult["AGE"][] = [
             "ID" => $fields['ID'],
             "NAME" => $fields['NAME'],
-            "CODE" => translit($fields['NAME']),
+            "CODE" => strtolower(translit($fields['NAME'])),
         ];
     }
     unset($res, $ar_result);
@@ -138,7 +138,7 @@ if(!empty($arParams["TRANSLATE_STATUS"])) {
         $arResult["TRANSLATE_STATUS"][] = [
             "ID" => $fields['ID'],
             "NAME" => $fields['NAME'],
-            "CODE" => translit($fields['NAME']),
+            "CODE" => strtolower(translit($fields['NAME'])),
         ];
     }
     unset($res, $ar_result);
@@ -158,7 +158,7 @@ if(!empty($arParams["STATUS"])) {
         $arResult["STATUS"][] = [
             "ID" => $fields['ID'],
             "NAME" => $fields['NAME'],
-            "CODE" => translit($fields['NAME']),
+            "CODE" => strtolower(translit($fields['NAME'])),
         ];
     }
     unset($res, $ar_result);
@@ -178,11 +178,12 @@ if(!empty($arParams["OUTPUT_FORMATS"])) {
         $arResult["OUTPUT_FORMATS"][] = [
             "ID" => $fields['ID'],
             "NAME" => $fields['NAME'],
-            "CODE" => translit($fields['NAME']),
+            "CODE" => strtolower(translit($fields['NAME'])),
         ];
     }
     unset($res, $ar_result);
 }
 
 $this->IncludeComponentTemplate();
+
 ?>

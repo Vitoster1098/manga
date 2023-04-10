@@ -220,8 +220,5 @@ IncludeTemplateLangFile(__FILE__);?>
         </div>
     </div>
 </div>
-<script>(function(){var js = "window['__CF$cv$params']={r:'7b298ebabcef373a',m:'CcHhVTRSlZZYyYOkBreGx6JW7og1YrE5Dcqt82OjoxI-1680611373-0-AToSZ9/MDgyFWwSzCitCOtBnKm2eJx5S8yuiHNkXE0km6dN9KCGmRoPiwrJpMPRYOUdtqo1VpItWO3fS90QMEpm80hXwY4wXaJKjFGNb96Uw7gaxl4/GyX5HPdse8BlsRw==',s:[0xc4dd8dd07a,0x104fd9c615],u:'/local/templates/personal/js'};var now=Date.now()/1000,offset=14400,ts=''+(Math.floor(now)-Math.floor(now%offset)),_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/local/templates/personal/js/invisible.js?ts='+ts,document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.nonce = '';_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
-<div style="position: fixed; left: -99px;">
-    <div id="fa3dfc9765"><iframe frameborder="no" scrolling="no" allowtransparency="true" hidefocus="true" tabindex="-1" marginwidth="0" marginheight="0" src="https://yastatic.net/safeframe-bundles/0.83/1-1-0/render.html" id="id8634" style="opacity: 1;"></iframe></div>
-</div>
 </body>
+</html>

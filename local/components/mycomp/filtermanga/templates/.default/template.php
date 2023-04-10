@@ -17,23 +17,24 @@
 
                     <filter-group class="filter-group" id="filter_genres">
                         <div class="filter-header">
-                            <div class="filter-title"><legend class="col-form-label required">Жанры</legend></div>
+                            <div class="filter-title">
+                                <legend class="col-form-label required">Жанры</legend>
+                            </div>
+
                             <div class="filter-options">
                                 <button type="button" class="no-focus filter-options-collapse" data-action="click:filter-group#collapse">
-
-
                                     <svg class="c-icon c-icon-m-slider-right " width="12" height="15">
                                         <use xlink:href="#icon-m-slider-right"></use>
                                     </svg>
                                 </button>
                             </div>
                         </div>
+
                         <div class="filter-body">
                             <filter-input class="filter-input" aria-owns="filter_genres_values" data-target="filter-group.filterInput" data-morphdom-ignore="" hidden="">
                                 <input-reset class="d-block position-relative" event-type="change">
                                     <input class="form-control pe-4" type="text" placeholder="Найти..." data-target="input-reset.input" autocomplete="off" spellcheck="false">
                                     <div class="position-absolute py-1 px-1 form-control-clear" data-target="input-reset.button" data-action="click:input-reset#reset" hidden="">
-
 
                                         <svg class="c-icon c-icon-cross " width="12" height="12">
                                             <use xlink:href="#icon-cross"></use>
@@ -41,32 +42,38 @@
                                     </div>
                                 </input-reset>
                             </filter-input>
+
                             <div class="filter-fieldset">
                                 <tri-state>
                                     <input type="hidden" id="filter_genres_excludes" name="filter[genres][excludes]" data-target="tri-state.excludes">
+
                                     <div id="filter_genres_values" data-filter-list="true">
                                         <?if(!empty($arResult["GENRES"])):?>
-                                        <?foreach ($arResult["GENRES"] as $arItem):?>
-                                        <div class="filter-item" data-targets="filter-group.items" hidden="">
-                                            <div class="form-check">
-                                                <input type="checkbox" id="filter_genres_values_<?=$arItem['CODE']?>" name="<?=$arItem['CODE']?>" class="form-check-input" value="<?=$arItem['CODE']?>">
-                                                <label class="form-check-label" for="filter_genres_values_<?=$arItem['CODE']?>"><?=$arItem['NAME']?></label>
-                                            </div>
-                                        </div>
-                                        <?endforeach;?>
+                                            <?foreach ($arResult["GENRES"] as $arItem):?>
+                                                <div class="filter-item" data-targets="filter-group.items" hidden="">
+                                                    <div class="form-check">
+                                                        <input type="checkbox" id="filter_genres_values_<?=$arItem["CODE"]?>" name="filter[genres][values][]" class="form-check-input" value="<?=$arItem["CODE"]?>">
+                                                        <label class="form-check-label" for="filter_genres_values_<?=$arItem["CODE"]?>"><?=$arItem["NAME"]?></label>
+                                                    </div>
+                                                </div>
+                                            <?endforeach;?>
                                         <?else:?>
-                                        <div class="pt-2 text-muted text-center" data-filter-empty-state="" hidden="">
-                                            Ничего не найдено
-                                        </div>
+                                            <div class="pt-2 text-muted text-center" data-filter-empty-state="" hidden="">
+                                                Ничего не найдено
+                                            </div>
                                         <?endif;?>
                                     </div>
-                                </tri-state></div>
+                                </tri-state>
+                            </div>
                             <div class="mt-2">
                                 <button class="fw-bold px-0 link-primary" type="button" data-action="click:filter-group#show" data-target="filter-group.showButton">
                                     Посмотреть все
                                 </button>
                             </div>
                         </div>
+
+
+
                     </filter-group>
 
                     <filter-group class="filter-group" id="filter_tags">
@@ -96,16 +103,20 @@
                                     <input type="hidden" id="filter_tags_excludes" name="filter[tags][excludes]" data-target="tri-state.excludes" />
 
                                     <div id="filter_tags_values" data-filter-list="true">
-                                        <div class="filter-item" data-targets="filter-group.items" hidden="">
-                                            <div class="form-check">
-                                                <input type="checkbox" id="filter_tags_values_azartnye_igry" name="filter[tags][values][]" class="form-check-input" value="azartnye_igry" />
-                                                <label class="form-check-label" for="filter_tags_values_azartnye_igry">Азартные игры</label>
+                                        <?if(!empty($arResult["TAGS"])):?>
+                                            <?foreach ($arResult["TAGS"] as $arItem):?>
+                                            <div class="filter-item" data-targets="filter-group.items" hidden="">
+                                                <div class="form-check">
+                                                    <input type="checkbox" id="filter_tags_values_<?=$arItem["CODE"]?>" name="filter[tags][values][]" class="form-check-input" value="<?=$arItem["CODE"]?>" />
+                                                    <label class="form-check-label" for="filter_tags_values_<?=$arItem["CODE"]?>"><?=$arItem["NAME"]?></label>
+                                                </div>
                                             </div>
-                                        </div>
-
-                                        <div class="pt-2 text-muted text-center" data-filter-empty-state="" hidden="">
-                                            Ничего не найдено
-                                        </div>
+                                            <?endforeach;?>
+                                        <?else:?>
+                                            <div class="pt-2 text-muted text-center" data-filter-empty-state="" hidden="">
+                                                Ничего не найдено
+                                            </div>
+                                        <?endif;?>
                                     </div>
                                 </tri-state>
                             </div>
@@ -155,16 +166,20 @@
                                     <input type="hidden" id="filter_type_excludes" name="filter[type][excludes]" data-target="tri-state.excludes" />
 
                                     <div id="filter_type_values" data-filter-list="true">
-                                        <div class="filter-item" data-targets="filter-group.items">
-                                            <div class="form-check">
-                                                <input type="checkbox" id="filter_type_values_manga" name="filter[type][values][]" class="form-check-input" value="manga" />
-                                                <label class="form-check-label" for="filter_type_values_manga">Манга</label>
+                                        <?if(!empty($arResult["CATEGORIES"])):?>
+                                            <?foreach ($arResult["CATEGORIES"] as $arItem):?>
+                                            <div class="filter-item" data-targets="filter-group.items">
+                                                <div class="form-check">
+                                                    <input type="checkbox" id="filter_type_values_manga" name="filter[type][values][]" class="form-check-input" value="<?=$arItem["CODE"]?>" />
+                                                    <label class="form-check-label" for="filter_type_values_<?=$arItem["CODE"]?>"><?=$arItem["NAME"]?></label>
+                                                </div>
                                             </div>
-                                        </div>
-
-                                        <div class="pt-2 text-muted text-center" data-filter-empty-state="" hidden="">
-                                            Ничего не найдено
-                                        </div>
+                                            <?endforeach;?>
+                                        <?else:?>
+                                            <div class="pt-2 text-muted text-center" data-filter-empty-state="" hidden="">
+                                                Ничего не найдено
+                                            </div>
+                                        <?endif;?>
                                     </div>
                                 </tri-state>
                             </div>
@@ -188,16 +203,20 @@
                                     <input type="hidden" id="filter_status_excludes" name="filter[status][excludes]" data-target="tri-state.excludes" />
 
                                     <div id="filter_status_values" data-filter-list="true">
-                                        <div class="filter-item" data-targets="filter-group.items">
-                                            <div class="form-check">
-                                                <input type="checkbox" id="filter_status_values_ongoing" name="filter[status][values][]" class="form-check-input" value="ongoing" />
-                                                <label class="form-check-label" for="filter_status_values_ongoing">Онгоинг</label>
+                                        <?if(!empty($arResult["STATUS"])):?>
+                                            <?foreach ($arResult["STATUS"] as $arItem):?>
+                                            <div class="filter-item" data-targets="filter-group.items">
+                                                <div class="form-check">
+                                                    <input type="checkbox" id="filter_status_values_ongoing" name="filter[status][values][]" class="form-check-input" value="<?=$arItem["CODE"]?>" />
+                                                    <label class="form-check-label" for="filter_status_values_<?=$arItem["CODE"]?>"><?=$arItem["NAME"]?></label>
+                                                </div>
                                             </div>
-                                        </div>
-
-                                        <div class="pt-2 text-muted text-center" data-filter-empty-state="" hidden="">
-                                            Ничего не найдено
-                                        </div>
+                                            <?endforeach;?>
+                                        <?else:?>
+                                            <div class="pt-2 text-muted text-center" data-filter-empty-state="" hidden="">
+                                                Ничего не найдено
+                                            </div>
+                                        <?endif;?>
                                     </div>
                                 </tri-state>
                             </div>
@@ -221,16 +240,20 @@
                                     <input type="hidden" id="filter_statusTranslation_excludes" name="filter[statusTranslation][excludes]" data-target="tri-state.excludes" />
 
                                     <div id="filter_statusTranslation_values" data-filter-list="true">
-                                        <div class="filter-item" data-targets="filter-group.items">
-                                            <div class="form-check">
-                                                <input type="checkbox" id="filter_statusTranslation_values_processing" name="filter[statusTranslation][values][]" class="form-check-input" value="processing" />
-                                                <label class="form-check-label" for="filter_statusTranslation_values_processing">Продолжается</label>
+                                        <?if(!empty($arResult["TRANSLATE_STATUS"])):?>
+                                            <?foreach ($arResult["TRANSLATE_STATUS"] as $arItem):?>
+                                            <div class="filter-item" data-targets="filter-group.items">
+                                                <div class="form-check">
+                                                    <input type="checkbox" id="filter_statusTranslation_values_<?=$arItem["CODE"]?>" name="filter[statusTranslation][values][]" class="form-check-input" value="<?=$arItem["CODE"]?>" />
+                                                    <label class="form-check-label" for="filter_statusTranslation_values_<?=$arItem["CODE"]?>"><?=$arItem["NAME"]?></label>
+                                                </div>
                                             </div>
-                                        </div>
-
-                                        <div class="pt-2 text-muted text-center" data-filter-empty-state="" hidden="">
-                                            Ничего не найдено
-                                        </div>
+                                            <?endforeach;?>
+                                        <?else:?>
+                                            <div class="pt-2 text-muted text-center" data-filter-empty-state="" hidden="">
+                                                Ничего не найдено
+                                            </div>
+                                        <?endif;?>
                                     </div>
                                 </tri-state>
                             </div>
@@ -254,16 +277,21 @@
                                     <input type="hidden" id="filter_formats_excludes" name="filter[formats][excludes]" data-target="tri-state.excludes" />
 
                                     <div id="filter_formats_values" data-filter-list="true">
-                                        <div class="filter-item" data-targets="filter-group.items">
-                                            <div class="form-check">
-                                                <input type="checkbox" id="filter_formats_values_digest" name="filter[formats][values][]" class="form-check-input" value="digest" />
-                                                <label class="form-check-label" for="filter_formats_values_digest">Сборник</label>
+                                        <?if(!empty($arResult["OUTPUT_FORMATS"])):?>
+                                            <?foreach ($arResult["OUTPUT_FORMATS"] as $arItem):?>
+                                            <div class="filter-item" data-targets="filter-group.items">
+                                                <div class="form-check">
+                                                    <input type="checkbox" id="filter_formats_values_<?=$arItem["CODE"]?>" name="filter[formats][values][]" class="form-check-input" value="<?=$arItem["CODE"]?>" />
+                                                    <label class="form-check-label" for="filter_formats_values_<?=$arItem["CODE"]?>"><?=$arItem["NAME"]?></label>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="pt-2 text-muted text-center" data-filter-empty-state="" hidden="">
-                                            Ничего не найдено
-                                        </div>
+                                            <?endforeach;?>
+                                        <?else:?>
+                                            <div class="pt-2 text-muted text-center" data-filter-empty-state="" hidden="">
+                                                Ничего не найдено
+                                            </div>
+                                        <?endif;?>
                                     </div>
                                 </tri-state>
                             </div>
@@ -287,16 +315,20 @@
                                     <input type="hidden" id="filter_ageRating_excludes" name="filter[ageRating][excludes]" data-target="tri-state.excludes" />
 
                                     <div id="filter_ageRating_values" data-filter-list="true">
-                                        <div class="filter-item" data-targets="filter-group.items">
-                                            <div class="form-check">
-                                                <input type="checkbox" id="filter_ageRating_values_16" name="filter[ageRating][values][]" class="form-check-input" value="16" />
-                                                <label class="form-check-label" for="filter_ageRating_values_16">16+</label>
+                                        <?if(!empty($arResult["AGE"])):?>
+                                            <?foreach ($arResult["AGE"] as $arItem):?>
+                                            <div class="filter-item" data-targets="filter-group.items">
+                                                <div class="form-check">
+                                                    <input type="checkbox" id="filter_ageRating_values_<?=$arItem["CODE"]?>" name="filter[ageRating][values][]" class="form-check-input" value="<?=$arItem["CODE"]?>" />
+                                                    <label class="form-check-label" for="filter_ageRating_values_16"><?=$arItem["NAME"]?></label>
+                                                </div>
                                             </div>
-                                        </div>
-
-                                        <div class="pt-2 text-muted text-center" data-filter-empty-state="" hidden="">
-                                            Ничего не найдено
-                                        </div>
+                                            <?endforeach;?>
+                                        <?else:?>
+                                            <div class="pt-2 text-muted text-center" data-filter-empty-state="" hidden="">
+                                                Ничего не найдено
+                                            </div>
+                                        <?endif;?>
                                     </div>
                                 </tri-state>
                             </div>
@@ -330,16 +362,20 @@
                                     <input type="hidden" id="filter_country_excludes" name="filter[country][excludes]" data-target="tri-state.excludes" />
 
                                     <div id="filter_country_values" data-filter-list="true">
-                                        <div class="filter-item" data-targets="filter-group.items" hidden="">
-                                            <div class="form-check">
-                                                <input type="checkbox" id="filter_country_values_australia" name="filter[country][values][]" class="form-check-input" value="australia" />
-                                                <label class="form-check-label" for="filter_country_values_australia">Австралия</label>
+                                        <?if(!empty($arResult["COUNTRIES"])):?>
+                                            <?foreach ($arResult["COUNTRIES"] as $arItem):?>
+                                            <div class="filter-item" data-targets="filter-group.items" hidden="">
+                                                <div class="form-check">
+                                                    <input type="checkbox" id="filter_country_values_<?=$arItem["CODE"]?>" name="filter[country][values][]" class="form-check-input" value="<?=$arItem["CODE"]?>" />
+                                                    <label class="form-check-label" for="filter_country_values_<?=$arItem["CODE"]?>"><?=$arItem["NAME"]?></label>
+                                                </div>
                                             </div>
-                                        </div>
-
-                                        <div class="pt-2 text-muted text-center" data-filter-empty-state="" hidden="">
-                                            Ничего не найдено
-                                        </div>
+                                            <?endforeach;?>
+                                        <?else:?>
+                                            <div class="pt-2 text-muted text-center" data-filter-empty-state="" hidden="">
+                                                Ничего не найдено
+                                            </div>
+                                        <?endif;?>
                                     </div>
                                 </tri-state>
                             </div>

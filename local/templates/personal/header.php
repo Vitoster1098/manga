@@ -16,7 +16,7 @@
             transform: translate3d(0, 0, 0);
         }
     </style>
-    <link rel="shortcut icon" type="image/x-icon" href="<?=SITE_TEMPLATE_PATH?>/images/favicon.ico" />
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <?$APPLICATION->ShowMeta("robots")?>
     <?$APPLICATION->ShowMeta("keywords")?>
@@ -24,36 +24,45 @@
 
     <title><?$APPLICATION->ShowTitle()?></title>
 
-    <meta name="description" content="Мангахаб - лучший сайт для удобного чтения манги (manga), маньхвы (manhwa), маньхуа (manhua), OEL-манги и додзинси онлайн. Большой каталог, удобный поиск, самые свежие переводы онлайн бесплатно на русском языке от лучших команд переводчиков.">
-    <meta name="keywords" content="манга, манга онлайн, читать мангу, читать мангу онлайн, манга бесплатно, популярная манга, манга романтика, манга по жанрам, манга про любовь, манга русская, манга на русском, перевод манга, лучшая манга, топ манга, каталог манга">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta charset="UTF-8">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="MangaHub">
-    <meta name="application-name" content="MangaHub">
-    <meta name="theme-color" content="#182839">
 
-    <link rel="preload" as="font" href="<?=SITE_TEMPLATE_PATH?>/fonts/Gilroy-Bold.woff" type="font/woff" crossorigin="anonymous">
-    <link rel="preload" as="font" href="<?=SITE_TEMPLATE_PATH?>/fonts/Raleway-Black.woff" type="font/woff" crossorigin="anonymous">
-    <link rel="preload" as="font" href="<?=SITE_TEMPLATE_PATH?>/fonts/Raleway-Bold.woff" type="font/woff" crossorigin="anonymous">
-    <link rel="preload" as="font" href="<?=SITE_TEMPLATE_PATH?>/fonts/Gilroy-SemiBoldItalic.woff" type="font/woff" crossorigin="anonymous">
-    <link rel="preload" as="font" href="<?=SITE_TEMPLATE_PATH?>/fonts/Gilroy-Medium.woff" type="font/woff" crossorigin="anonymous">
-    <link rel="preload" as="font" href="<?=SITE_TEMPLATE_PATH?>/fonts/Gilroy-Regular.woff" type="font/woff" crossorigin="anonymous">
-    <link rel="preload" as="font" href="<?=SITE_TEMPLATE_PATH?>/fonts/Gilroy-SemiBold.woff" type="font/woff" crossorigin="anonymous">
 
-    <script src="<?=SITE_TEMPLATE_PATH?>/js/runtime.js" crossorigin="anonymous" defer=""></script>
-    <script src="<?=SITE_TEMPLATE_PATH?>/js/896.js" crossorigin="anonymous" defer=""></script>
-    <script src="<?=SITE_TEMPLATE_PATH?>/js/899.js" crossorigin="anonymous" defer=""></script>
-    <script src="<?=SITE_TEMPLATE_PATH?>/js/app.js" crossorigin="anonymous" defer=""></script>
+    <?php use Bitrix\Main\Page\Asset;
 
-    <link rel="apple-touch-icon" sizes="180x180" href="<?=SITE_TEMPLATE_PATH?>/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="<?=SITE_TEMPLATE_PATH?>/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="<?=SITE_TEMPLATE_PATH?>/images/favicon-16x16.png" sizes="16x16">
-    <link rel="mask-icon" href="<?=SITE_TEMPLATE_PATH?>/images/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="manifest" href="<?=SITE_TEMPLATE_PATH?>/js/manifest.json">
+    // Для подключения css
+    #Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/light.css");
 
-    <link rel="stylesheet" data-theme="light" data-href="<?=SITE_TEMPLATE_PATH?>/css/light.css">
-    <link rel="stylesheet" type="text/css" href="<?=SITE_TEMPLATE_PATH?>/css/dark.css" data-theme="dark"  />
+    // Для подключения скриптов
+    Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/runtime.js");
+    Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/896.js");
+    Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/899.js");
+    Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/app.js");
+
+    // Подключение мета тегов или сторонних файлов
+    Asset::getInstance()->addString('<link rel="preload" as="font" href="' . SITE_TEMPLATE_PATH . '/fonts/Gilroy-Bold.woff" type="font/woff" crossorigin="anonymous">');
+    Asset::getInstance()->addString('<link rel="preload" as="font" href="' . SITE_TEMPLATE_PATH . '/fonts/Raleway-Black.woff" type="font/woff" crossorigin="anonymous">');
+    Asset::getInstance()->addString('<link rel="preload" as="font" href="' . SITE_TEMPLATE_PATH . '/fonts/Raleway-Bold.woff" type="font/woff" crossorigin="anonymous">');
+    Asset::getInstance()->addString('<link rel="preload" as="font" href="' . SITE_TEMPLATE_PATH . '/fonts/Gilroy-SemiBoldItalic.woff" type="font/woff" crossorigin="anonymous">');
+    Asset::getInstance()->addString('<link rel="preload" as="font" href="' . SITE_TEMPLATE_PATH . '/fonts/Gilroy-Medium.woff" type="font/woff" crossorigin="anonymous">');
+    Asset::getInstance()->addString('<link rel="preload" as="font" href="' . SITE_TEMPLATE_PATH . '/fonts/Gilroy-Regular.woff" type="font/woff" crossorigin="anonymous">');
+    Asset::getInstance()->addString('<link rel="preload" as="font" href="' . SITE_TEMPLATE_PATH . '/fonts/Gilroy-SemiBold.woff" type="font/woff" crossorigin="anonymous">');
+    Asset::getInstance()->addString('<link rel="stylesheet" data-theme="light" data-href="' . SITE_TEMPLATE_PATH . '/css/light.css">');
+    Asset::getInstance()->addString('<link rel="stylesheet" type="text/css" href="' . SITE_TEMPLATE_PATH . '/css/dark.css" data-theme="dark"  />');
+    Asset::getInstance()->addString('<link rel="apple-touch-icon" sizes="180x180" href="' . SITE_TEMPLATE_PATH . '/images/apple-touch-icon.png">');
+    Asset::getInstance()->addString('<link rel="icon" type="image/png" href="' . SITE_TEMPLATE_PATH . '/images/favicon-32x32.png" sizes="32x32">');
+    Asset::getInstance()->addString('<link rel="icon" type="image/png" href="' . SITE_TEMPLATE_PATH . '/images/favicon-16x16.png" sizes="16x16">');
+    Asset::getInstance()->addString('<link rel="mask-icon" href="' . SITE_TEMPLATE_PATH . '/images/safari-pinned-tab.svg" color="#5bbad5">');
+    Asset::getInstance()->addString('<link rel="manifest" href="' . SITE_TEMPLATE_PATH . '/js/manifest.json">');
+    Asset::getInstance()->addString('<link rel="shortcut icon" type="image/x-icon" href="' . SITE_TEMPLATE_PATH . '/images/favicon.ico" />');
+    Asset::getInstance()->addString('<meta name="description" content="Мангахаб - лучший сайт для удобного чтения манги (manga), маньхвы (manhwa), маньхуа (manhua), OEL-манги и додзинси онлайн. Большой каталог, удобный поиск, самые свежие переводы онлайн бесплатно на русском языке от лучших команд переводчиков.">');
+    Asset::getInstance()->addString('<meta name="keywords" content="манга, манга онлайн, читать мангу, читать мангу онлайн, манга бесплатно, популярная манга, манга романтика, манга по жанрам, манга про любовь, манга русская, манга на русском, перевод манга, лучшая манга, топ манга, каталог манга">');
+    Asset::getInstance()->addString('<meta name="viewport" content="width=device-width,initial-scale=1">');
+    Asset::getInstance()->addString('<meta charset="UTF-8">');
+    Asset::getInstance()->addString('<meta name="mobile-web-app-capable" content="yes">');
+    Asset::getInstance()->addString('<meta name="apple-mobile-web-app-title" content="MangaHub">');
+    Asset::getInstance()->addString('<meta name="application-name" content="MangaHub">');
+    Asset::getInstance()->addString('<meta name="theme-color" content="#182839">');
+
+    ?>
 
     <?$APPLICATION->ShowHead();?>
     <?IncludeTemplateLangFile(__FILE__);?>
