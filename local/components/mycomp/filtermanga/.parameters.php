@@ -7,7 +7,6 @@
  * */
 
 use Bitrix\Main\Loader;
-use Bitrix\Main\Localization\Loc;
 
 if( !Loader::includeModule("iblock") ) {
     throw new \Exception('Не загружены модули необходимые для работы компонента');

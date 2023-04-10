@@ -24,8 +24,6 @@
 
     <title><?$APPLICATION->ShowTitle()?></title>
 
-
-
     <?php use Bitrix\Main\Page\Asset;
 
     // Для подключения css
@@ -517,114 +515,6 @@
 	false
 );?>
 
-                    <!--div class="dropdown-menu p-0">
-                        <div class="d-flex align-items-stretch">
-                            <div class="header-nav-side p-2">
-                                <div class="d-flex flex-column align-items-stretch">
-                                    <a href="/explore/index.php" class="dropdown-item active justify-content-between">
-                                                <span class="d-flex align-items-center">
-                                                    <svg class="c-icon c-icon-list dropdown-item-icon" width="16" height="16">
-                                                        <use xlink:href="#icon-list"></use>
-                                                    </svg>
-                                                    Каталог
-                                                </span>
-                                        <svg class="c-icon c-icon-m-slider-left " width="14" height="14" style="transform: rotate(180deg)">
-                                            <use xlink:href="#icon-m-slider-left"></use>
-                                        </svg>
-                                    </a>
-                                    <a href="/feed/index.php" class="dropdown-item justify-content-between">
-                                                <span class="d-flex align-items-center">
-                                                    <svg class="c-icon c-icon-bullhorn dropdown-item-icon" width="16" height="16">
-                                                        <use xlink:href="#icon-bullhorn"></use>
-                                                    </svg>
-                                                    Обновления
-                                                </span>
-                                        <span class="badge rounded-pill bg-primary">366</span>
-                                    </a>
-                                    <a href="/translators/index.php" class="dropdown-item justify-content-between">
-                                                <span class="d-flex align-items-center">
-                                                    <svg class="c-icon c-icon-m-translates dropdown-item-icon" width="16" height="16">
-                                                        <use xlink:href="#icon-m-translates"></use>
-                                                    </svg>
-                                                    Переводчики
-                                                </span>
-                                    </a>
-                                    <a href="/authors/index.php" class="dropdown-item justify-content-between">
-                                                <span class="d-flex align-items-center">
-                                                    <svg class="c-icon c-icon-users dropdown-item-icon" width="16" height="16">
-                                                        <use xlink:href="#icon-users"></use>
-                                                    </svg>
-                                                    Авторы
-                                                </span>
-                                    </a>
-                                    <a href="/publishers/index.php" class="dropdown-item justify-content-between">
-                                                <span class="d-flex align-items-center">
-                                                    <svg class="c-icon c-icon-home dropdown-item-icon" width="16" height="16">
-                                                        <use xlink:href="#icon-home"></use>
-                                                    </svg>
-                                                    Издательства
-                                                </span>
-                                    </a>
-                                    <a href="/collections/index.php" class="dropdown-item justify-content-between">
-                                                <span class="d-flex align-items-center">
-                                                    <svg class="c-icon c-icon-star-fill dropdown-item-icon" width="16" height="16">
-                                                        <use xlink:href="#icon-star-fill"></use>
-                                                    </svg>
-                                                    Коллекции
-                                                </span>
-                                    </a>
-                                    <a href="/genres/index.php" class="dropdown-item justify-content-between">
-                                                <span class="d-flex align-items-center">
-                                                    <svg class="c-icon c-icon-mask dropdown-item-icon" width="16" height="16">
-                                                        <use xlink:href="#icon-mask"></use>
-                                                    </svg>
-                                                    Жанры
-                                                </span>
-                                    </a>
-                                    <a href="/tags/index.php" class="dropdown-item justify-content-between">
-                                                <span class="d-flex align-items-center">
-                                                    <svg class="c-icon c-icon-label dropdown-item-icon" width="16" height="16">
-                                                        <use xlink:href="#icon-label"></use>
-                                                    </svg>
-                                                    Теги
-                                                </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="header-nav-sub p-2 d-flex flex-column">
-                                <div class="fs-2 fw-medium mb-2">Выберите категорию</div>
-                                <div class="d-flex flex-column">
-                                    <a href="/explore/type-is-manga" class="dropdown-item">
-                                        Манга
-                                    </a>
-                                    <a href="/explore/type-is-manhwa" class="dropdown-item">
-                                        Манхва
-                                    </a>
-                                    <a href="/explore/type-is-manhua" class="dropdown-item">
-                                        Маньхуа
-                                    </a>
-                                    <a href="/explore/type-is-oel" class="dropdown-item">
-                                        OEL-манга
-                                    </a>
-                                    <a href="/explore/type-is-comix" class="dropdown-item">
-                                        Комикс западный
-                                    </a>
-                                    <a href="/explore/type-is-ranobe" class="dropdown-item">
-                                        Ранобэ
-                                    </a>
-                                </div>
-                                <div class="mt-auto">
-                                    <a href="/random" class="btn btn-primary w-100 mt-1">
-                                        <svg class="c-icon c-icon-dice ">
-                                            <use xlink:href="#icon-dice"></use>
-                                        </svg>
-                                        Случайный тайтл
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div-->
-
                 </div>
             </div>
             <div class="d-flex flex-fill align-items-center justify-content-end">
@@ -692,6 +582,7 @@
                                             </button>
                                         </div>
                                         <div class="header-search-suggestions js-blur-input">
+                                            <!-- Заменить на динамику или в меню спрятать -->
                                             <div class="scroller header-search-category d-flex d-md-none">
                                                 <div class="scroller-item btn btn-sm btn-primary fw-medium active me-2" data-type="manga" data-label="Тайтлы" data-targets="search-suggestion.types">
                                                     Тайтлы
