@@ -49,8 +49,14 @@
 
                                     <div id="filter_genres_values" data-filter-list="true">
                                         <?if(!empty($arResult["GENRES"])):?>
-                                            <?foreach ($arResult["GENRES"] as $arItem):?>
-                                                <div class="filter-item" data-targets="filter-group.items" hidden="">
+                                            <?foreach ($arResult["GENRES"] as $arItem):
+                                                $this->AddEditAction($arItem["ID"], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+                                                // экшен добавления элемента
+                                                $this->AddEditAction($arItem["ID"], $arItem["EDIT_ADD"], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_ADD"));
+                                                // экшен удаления элемента
+                                                $this->AddDeleteAction($arItem["ID"], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), ["CONFIRM" => "Удалить?"]);
+                                                ?>
+                                                <div class="filter-item" data-targets="filter-group.items" hidden="" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                                                     <div class="form-check">
                                                         <input type="checkbox" id="filter_genres_values_<?=$arItem["CODE"]?>" name="filter[genres][values][]" class="form-check-input" value="<?=$arItem["CODE"]?>">
                                                         <label class="form-check-label" for="filter_genres_values_<?=$arItem["CODE"]?>"><?=$arItem["NAME"]?></label>
@@ -104,8 +110,14 @@
 
                                     <div id="filter_tags_values" data-filter-list="true">
                                         <?if(!empty($arResult["TAGS"])):?>
-                                            <?foreach ($arResult["TAGS"] as $arItem):?>
-                                            <div class="filter-item" data-targets="filter-group.items" hidden="">
+                                            <?foreach ($arResult["TAGS"] as $arItem):
+                                                $this->AddEditAction($arItem["ID"], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+                                                // экшен добавления элемента
+                                                $this->AddEditAction($arItem["ID"], $arItem["EDIT_ADD"], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_ADD"));
+                                                // экшен удаления элемента
+                                                $this->AddDeleteAction($arItem["ID"], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), ["CONFIRM" => "Удалить?"]);
+                                                ?>
+                                            <div class="filter-item" data-targets="filter-group.items" hidden="" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                                                 <div class="form-check">
                                                     <input type="checkbox" id="filter_tags_values_<?=$arItem["CODE"]?>" name="filter[tags][values][]" class="form-check-input" value="<?=$arItem["CODE"]?>" />
                                                     <label class="form-check-label" for="filter_tags_values_<?=$arItem["CODE"]?>"><?=$arItem["NAME"]?></label>
@@ -167,8 +179,14 @@
 
                                     <div id="filter_type_values" data-filter-list="true">
                                         <?if(!empty($arResult["CATEGORIES"])):?>
-                                            <?foreach ($arResult["CATEGORIES"] as $arItem):?>
-                                            <div class="filter-item" data-targets="filter-group.items">
+                                            <?foreach ($arResult["CATEGORIES"] as $arItem):
+                                                $this->AddEditAction($arItem["ID"], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+                                                // экшен добавления элемента
+                                                $this->AddEditAction($arItem["ID"], $arItem["EDIT_ADD"], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_ADD"));
+                                                // экшен удаления элемента
+                                                $this->AddDeleteAction($arItem["ID"], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), ["CONFIRM" => "Удалить?"]);
+                                                ?>
+                                            <div class="filter-item" data-targets="filter-group.items" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                                                 <div class="form-check">
                                                     <input type="checkbox" id="filter_type_values_manga" name="filter[type][values][]" class="form-check-input" value="<?=$arItem["CODE"]?>" />
                                                     <label class="form-check-label" for="filter_type_values_<?=$arItem["CODE"]?>"><?=$arItem["NAME"]?></label>
@@ -204,8 +222,14 @@
 
                                     <div id="filter_status_values" data-filter-list="true">
                                         <?if(!empty($arResult["STATUS"])):?>
-                                            <?foreach ($arResult["STATUS"] as $arItem):?>
-                                            <div class="filter-item" data-targets="filter-group.items">
+                                            <?foreach ($arResult["STATUS"] as $arItem):
+                                                $this->AddEditAction($arItem["ID"], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+                                                // экшен добавления элемента
+                                                $this->AddEditAction($arItem["ID"], $arItem["EDIT_ADD"], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_ADD"));
+                                                // экшен удаления элемента
+                                                $this->AddDeleteAction($arItem["ID"], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), ["CONFIRM" => "Удалить?"]);
+                                                ?>
+                                            <div class="filter-item" data-targets="filter-group.items" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                                                 <div class="form-check">
                                                     <input type="checkbox" id="filter_status_values_ongoing" name="filter[status][values][]" class="form-check-input" value="<?=$arItem["CODE"]?>" />
                                                     <label class="form-check-label" for="filter_status_values_<?=$arItem["CODE"]?>"><?=$arItem["NAME"]?></label>
@@ -241,8 +265,14 @@
 
                                     <div id="filter_statusTranslation_values" data-filter-list="true">
                                         <?if(!empty($arResult["TRANSLATE_STATUS"])):?>
-                                            <?foreach ($arResult["TRANSLATE_STATUS"] as $arItem):?>
-                                            <div class="filter-item" data-targets="filter-group.items">
+                                            <?foreach ($arResult["TRANSLATE_STATUS"] as $arItem):
+                                                $this->AddEditAction($arItem["ID"], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+                                                // экшен добавления элемента
+                                                $this->AddEditAction($arItem["ID"], $arItem["EDIT_ADD"], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_ADD"));
+                                                // экшен удаления элемента
+                                                $this->AddDeleteAction($arItem["ID"], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), ["CONFIRM" => "Удалить?"]);
+                                                ?>
+                                            <div class="filter-item" data-targets="filter-group.items" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                                                 <div class="form-check">
                                                     <input type="checkbox" id="filter_statusTranslation_values_<?=$arItem["CODE"]?>" name="filter[statusTranslation][values][]" class="form-check-input" value="<?=$arItem["CODE"]?>" />
                                                     <label class="form-check-label" for="filter_statusTranslation_values_<?=$arItem["CODE"]?>"><?=$arItem["NAME"]?></label>
@@ -278,8 +308,14 @@
 
                                     <div id="filter_formats_values" data-filter-list="true">
                                         <?if(!empty($arResult["OUTPUT_FORMATS"])):?>
-                                            <?foreach ($arResult["OUTPUT_FORMATS"] as $arItem):?>
-                                            <div class="filter-item" data-targets="filter-group.items">
+                                            <?foreach ($arResult["OUTPUT_FORMATS"] as $arItem):
+                                                $this->AddEditAction($arItem["ID"], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+                                                // экшен добавления элемента
+                                                $this->AddEditAction($arItem["ID"], $arItem["EDIT_ADD"], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_ADD"));
+                                                // экшен удаления элемента
+                                                $this->AddDeleteAction($arItem["ID"], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), ["CONFIRM" => "Удалить?"]);
+                                                ?>
+                                            <div class="filter-item" data-targets="filter-group.items" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                                                 <div class="form-check">
                                                     <input type="checkbox" id="filter_formats_values_<?=$arItem["CODE"]?>" name="filter[formats][values][]" class="form-check-input" value="<?=$arItem["CODE"]?>" />
                                                     <label class="form-check-label" for="filter_formats_values_<?=$arItem["CODE"]?>"><?=$arItem["NAME"]?></label>
@@ -316,8 +352,14 @@
 
                                     <div id="filter_ageRating_values" data-filter-list="true">
                                         <?if(!empty($arResult["AGE"])):?>
-                                            <?foreach ($arResult["AGE"] as $arItem):?>
-                                            <div class="filter-item" data-targets="filter-group.items">
+                                            <?foreach ($arResult["AGE"] as $arItem):
+                                                $this->AddEditAction($arItem["ID"], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+                                                // экшен добавления элемента
+                                                $this->AddEditAction($arItem["ID"], $arItem["EDIT_ADD"], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_ADD"));
+                                                // экшен удаления элемента
+                                                $this->AddDeleteAction($arItem["ID"], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), ["CONFIRM" => "Удалить?"]);
+                                                ?>
+                                            <div class="filter-item" data-targets="filter-group.items" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                                                 <div class="form-check">
                                                     <input type="checkbox" id="filter_ageRating_values_<?=$arItem["CODE"]?>" name="filter[ageRating][values][]" class="form-check-input" value="<?=$arItem["CODE"]?>" />
                                                     <label class="form-check-label" for="filter_ageRating_values_16"><?=$arItem["NAME"]?></label>
@@ -363,8 +405,14 @@
 
                                     <div id="filter_country_values" data-filter-list="true">
                                         <?if(!empty($arResult["COUNTRIES"])):?>
-                                            <?foreach ($arResult["COUNTRIES"] as $arItem):?>
-                                            <div class="filter-item" data-targets="filter-group.items" hidden="">
+                                            <?foreach ($arResult["COUNTRIES"] as $arItem):
+                                                $this->AddEditAction($arItem["ID"], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+                                                // экшен добавления элемента
+                                                $this->AddEditAction($arItem["ID"], $arItem["EDIT_ADD"], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_ADD"));
+                                                // экшен удаления элемента
+                                                $this->AddDeleteAction($arItem["ID"], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), ["CONFIRM" => "Удалить?"]);
+                                                ?>
+                                            <div class="filter-item" data-targets="filter-group.items" hidden="" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                                                 <div class="form-check">
                                                     <input type="checkbox" id="filter_country_values_<?=$arItem["CODE"]?>" name="filter[country][values][]" class="form-check-input" value="<?=$arItem["CODE"]?>" />
                                                     <label class="form-check-label" for="filter_country_values_<?=$arItem["CODE"]?>"><?=$arItem["NAME"]?></label>

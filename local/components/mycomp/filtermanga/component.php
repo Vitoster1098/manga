@@ -27,18 +27,35 @@ function translit($value): string
  * Обработка жанров
  */
 if(!empty($arParams["GENRES"])) {
+    \Bitrix\Main\Loader::includeModule('iblock');
     $arSelect = $arSelect = ["ID", "NAME", "PROPERTY_*"];;
     $arFilter = ["IBLOCK_ID"=>IntVal($arParams["GENRES"]), "ACTIVE"=>"Y"];
     $res = CIBlockElement::GetList([], $arFilter, false, false, $arSelect);
 
     while($ar_result = $res->GetNextElement())
     {
+        $arButtons = CIBlock::GetPanelButtons(
+            $fields["IBLOCK_ID"], // идентификатор инфоблока, которому принадлежит элемент
+            $fields['ID'], // идентификатор текущего элемента информационного блока
+            null, // идентификатор раздела инфоблока (при наличии)
+            array("SECTION_BUTTONS"=>false, "SESSID"=>false) //массив, содержащий локализацию названий
+        );
+        // ссылка в arResult на изменение эллемента
+        $arResult["EDIT_LINK"] = $arButtons["edit"]["edit_element"]["ACTION_URL"];
+        // ссылка в arResult на добавление эллемента
+        $arResult["EDIT_ADD"] = $arButtons["edit"]["add_element"]["ACTION_URL"];
+        // ссылка в arResult на удаление эллемента
+        $arResult["DELETE_LINK"] = $arButtons["edit"]["delete_element"]["ACTION_URL"];
+
         $props = $ar_result->GetProperties();
         $fields = $ar_result->GetFields();
         $arResult["GENRES"][] = [
             "ID" => $fields['ID'],
             "NAME" => $fields['NAME'],
             "CODE" => strtolower(translit($fields['NAME'])),
+            "EDIT_LINK" => $arResult["EDIT_LINK"],
+            "DELETE_LINK" => $arResult["DELETE_LINK"],
+            "EDIT_ADD" => $arResult["EDIT_ADD"],
         ];
     }
     unset($res, $ar_result);
@@ -53,12 +70,28 @@ if(!empty($arParams["TAGS"])) {
 
     while($ar_result = $res->GetNextElement())
     {
+        $arButtons = CIBlock::GetPanelButtons(
+            $fields["IBLOCK_ID"], // идентификатор инфоблока, которому принадлежит элемент
+            $fields['ID'], // идентификатор текущего элемента информационного блока
+            null, // идентификатор раздела инфоблока (при наличии)
+            array("SECTION_BUTTONS"=>false, "SESSID"=>false) //массив, содержащий локализацию названий
+        );
+        // ссылка в arResult на изменение эллемента
+        $arResult["EDIT_LINK"] = $arButtons["edit"]["edit_element"]["ACTION_URL"];
+        // ссылка в arResult на добавление эллемента
+        $arResult["EDIT_ADD"] = $arButtons["edit"]["add_element"]["ACTION_URL"];
+        // ссылка в arResult на удаление эллемента
+        $arResult["DELETE_LINK"] = $arButtons["edit"]["delete_element"]["ACTION_URL"];
+
         $props = $ar_result->GetProperties();
         $fields = $ar_result->GetFields();
         $arResult["TAGS"][] = [
             "ID" => $fields['ID'],
             "NAME" => $fields['NAME'],
             "CODE" => strtolower(translit($fields['NAME'])),
+            "EDIT_LINK" => $arResult["EDIT_LINK"],
+            "DELETE_LINK" => $arResult["DELETE_LINK"],
+            "EDIT_ADD" => $arResult["EDIT_ADD"],
         ];
     }
     unset($res, $ar_result);
@@ -73,12 +106,28 @@ if(!empty($arParams["CATEGORIES"])) {
 
     while($ar_result = $res->GetNextElement())
     {
+        $arButtons = CIBlock::GetPanelButtons(
+            $fields["IBLOCK_ID"], // идентификатор инфоблока, которому принадлежит элемент
+            $fields['ID'], // идентификатор текущего элемента информационного блока
+            null, // идентификатор раздела инфоблока (при наличии)
+            array("SECTION_BUTTONS"=>false, "SESSID"=>false) //массив, содержащий локализацию названий
+        );
+        // ссылка в arResult на изменение эллемента
+        $arResult["EDIT_LINK"] = $arButtons["edit"]["edit_element"]["ACTION_URL"];
+        // ссылка в arResult на добавление эллемента
+        $arResult["EDIT_ADD"] = $arButtons["edit"]["add_element"]["ACTION_URL"];
+        // ссылка в arResult на удаление эллемента
+        $arResult["DELETE_LINK"] = $arButtons["edit"]["delete_element"]["ACTION_URL"];
+
         $props = $ar_result->GetProperties();
         $fields = $ar_result->GetFields();
         $arResult["CATEGORIES"][] = [
             "ID" => $fields['ID'],
             "NAME" => $fields['NAME'],
             "CODE" => strtolower(translit($fields['NAME'])),
+            "EDIT_LINK" => $arResult["EDIT_LINK"],
+            "DELETE_LINK" => $arResult["DELETE_LINK"],
+            "EDIT_ADD" => $arResult["EDIT_ADD"],
         ];
     }
     unset($res, $ar_result);
@@ -93,12 +142,28 @@ if(!empty($arParams["COUNTRIES"])) {
 
     while($ar_result = $res->GetNextElement())
     {
+        $arButtons = CIBlock::GetPanelButtons(
+            $fields["IBLOCK_ID"], // идентификатор инфоблока, которому принадлежит элемент
+            $fields['ID'], // идентификатор текущего элемента информационного блока
+            null, // идентификатор раздела инфоблока (при наличии)
+            array("SECTION_BUTTONS"=>false, "SESSID"=>false) //массив, содержащий локализацию названий
+        );
+        // ссылка в arResult на изменение эллемента
+        $arResult["EDIT_LINK"] = $arButtons["edit"]["edit_element"]["ACTION_URL"];
+        // ссылка в arResult на добавление эллемента
+        $arResult["EDIT_ADD"] = $arButtons["edit"]["add_element"]["ACTION_URL"];
+        // ссылка в arResult на удаление эллемента
+        $arResult["DELETE_LINK"] = $arButtons["edit"]["delete_element"]["ACTION_URL"];
+
         $props = $ar_result->GetProperties();
         $fields = $ar_result->GetFields();
         $arResult["COUNTRIES"][] = [
             "ID" => $fields['ID'],
             "NAME" => $fields['NAME'],
             "CODE" => strtolower(translit($fields['NAME'])),
+            "EDIT_LINK" => $arResult["EDIT_LINK"],
+            "DELETE_LINK" => $arResult["DELETE_LINK"],
+            "EDIT_ADD" => $arResult["EDIT_ADD"],
         ];
     }
     unset($res, $ar_result);
@@ -113,12 +178,28 @@ if(!empty($arParams["AGE"])) {
 
     while($ar_result = $res->GetNextElement())
     {
+        $arButtons = CIBlock::GetPanelButtons(
+            $fields["IBLOCK_ID"], // идентификатор инфоблока, которому принадлежит элемент
+            $fields['ID'], // идентификатор текущего элемента информационного блока
+            null, // идентификатор раздела инфоблока (при наличии)
+            array("SECTION_BUTTONS"=>false, "SESSID"=>false) //массив, содержащий локализацию названий
+        );
+        // ссылка в arResult на изменение эллемента
+        $arResult["EDIT_LINK"] = $arButtons["edit"]["edit_element"]["ACTION_URL"];
+        // ссылка в arResult на добавление эллемента
+        $arResult["EDIT_ADD"] = $arButtons["edit"]["add_element"]["ACTION_URL"];
+        // ссылка в arResult на удаление эллемента
+        $arResult["DELETE_LINK"] = $arButtons["edit"]["delete_element"]["ACTION_URL"];
+
         $props = $ar_result->GetProperties();
         $fields = $ar_result->GetFields();
         $arResult["AGE"][] = [
             "ID" => $fields['ID'],
             "NAME" => $fields['NAME'],
             "CODE" => strtolower(translit($fields['NAME'])),
+            "EDIT_LINK" => $arResult["EDIT_LINK"],
+            "DELETE_LINK" => $arResult["DELETE_LINK"],
+            "EDIT_ADD" => $arResult["EDIT_ADD"],
         ];
     }
     unset($res, $ar_result);
@@ -133,12 +214,28 @@ if(!empty($arParams["TRANSLATE_STATUS"])) {
 
     while($ar_result = $res->GetNextElement())
     {
+        $arButtons = CIBlock::GetPanelButtons(
+            $fields["IBLOCK_ID"], // идентификатор инфоблока, которому принадлежит элемент
+            $fields['ID'], // идентификатор текущего элемента информационного блока
+            null, // идентификатор раздела инфоблока (при наличии)
+            array("SECTION_BUTTONS"=>false, "SESSID"=>false) //массив, содержащий локализацию названий
+        );
+        // ссылка в arResult на изменение эллемента
+        $arResult["EDIT_LINK"] = $arButtons["edit"]["edit_element"]["ACTION_URL"];
+        // ссылка в arResult на добавление эллемента
+        $arResult["EDIT_ADD"] = $arButtons["edit"]["add_element"]["ACTION_URL"];
+        // ссылка в arResult на удаление эллемента
+        $arResult["DELETE_LINK"] = $arButtons["edit"]["delete_element"]["ACTION_URL"];
+
         $props = $ar_result->GetProperties();
         $fields = $ar_result->GetFields();
         $arResult["TRANSLATE_STATUS"][] = [
             "ID" => $fields['ID'],
             "NAME" => $fields['NAME'],
             "CODE" => strtolower(translit($fields['NAME'])),
+            "EDIT_LINK" => $arResult["EDIT_LINK"],
+            "DELETE_LINK" => $arResult["DELETE_LINK"],
+            "EDIT_ADD" => $arResult["EDIT_ADD"],
         ];
     }
     unset($res, $ar_result);
@@ -153,12 +250,28 @@ if(!empty($arParams["STATUS"])) {
 
     while($ar_result = $res->GetNextElement())
     {
+        $arButtons = CIBlock::GetPanelButtons(
+            $fields["IBLOCK_ID"], // идентификатор инфоблока, которому принадлежит элемент
+            $fields['ID'], // идентификатор текущего элемента информационного блока
+            null, // идентификатор раздела инфоблока (при наличии)
+            array("SECTION_BUTTONS"=>false, "SESSID"=>false) //массив, содержащий локализацию названий
+        );
+        // ссылка в arResult на изменение эллемента
+        $arResult["EDIT_LINK"] = $arButtons["edit"]["edit_element"]["ACTION_URL"];
+        // ссылка в arResult на добавление эллемента
+        $arResult["EDIT_ADD"] = $arButtons["edit"]["add_element"]["ACTION_URL"];
+        // ссылка в arResult на удаление эллемента
+        $arResult["DELETE_LINK"] = $arButtons["edit"]["delete_element"]["ACTION_URL"];
+
         $props = $ar_result->GetProperties();
         $fields = $ar_result->GetFields();
         $arResult["STATUS"][] = [
             "ID" => $fields['ID'],
             "NAME" => $fields['NAME'],
             "CODE" => strtolower(translit($fields['NAME'])),
+            "EDIT_LINK" => $arResult["EDIT_LINK"],
+            "DELETE_LINK" => $arResult["DELETE_LINK"],
+            "EDIT_ADD" => $arResult["EDIT_ADD"],
         ];
     }
     unset($res, $ar_result);
@@ -173,12 +286,28 @@ if(!empty($arParams["OUTPUT_FORMATS"])) {
 
     while($ar_result = $res->GetNextElement())
     {
+        $arButtons = CIBlock::GetPanelButtons(
+            $fields["IBLOCK_ID"], // идентификатор инфоблока, которому принадлежит элемент
+            $fields['ID'], // идентификатор текущего элемента информационного блока
+            null, // идентификатор раздела инфоблока (при наличии)
+            array("SECTION_BUTTONS"=>false, "SESSID"=>false) //массив, содержащий локализацию названий
+        );
+        // ссылка в arResult на изменение эллемента
+        $arResult["EDIT_LINK"] = $arButtons["edit"]["edit_element"]["ACTION_URL"];
+        // ссылка в arResult на добавление эллемента
+        $arResult["EDIT_ADD"] = $arButtons["edit"]["add_element"]["ACTION_URL"];
+        // ссылка в arResult на удаление эллемента
+        $arResult["DELETE_LINK"] = $arButtons["edit"]["delete_element"]["ACTION_URL"];
+
         $props = $ar_result->GetProperties();
         $fields = $ar_result->GetFields();
         $arResult["OUTPUT_FORMATS"][] = [
             "ID" => $fields['ID'],
             "NAME" => $fields['NAME'],
             "CODE" => strtolower(translit($fields['NAME'])),
+            "EDIT_LINK" => $arResult["EDIT_LINK"],
+            "DELETE_LINK" => $arResult["DELETE_LINK"],
+            "EDIT_ADD" => $arResult["EDIT_ADD"],
         ];
     }
     unset($res, $ar_result);

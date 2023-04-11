@@ -112,8 +112,14 @@
             </div>
             <div class="px-3 px-sm-0">
                 <div class="row px-0 px-sm-3 py-3 g-3">
-                    <?foreach ($arResult["COMICS"] as $arItem):?>
-                        <div class="col-12 col-md-6 comic-list">
+                    <?foreach ($arResult["COMICS"] as $arItem):
+                        $this->AddEditAction($arItem["ID"], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+                        // экшен добавления элемента
+                        $this->AddEditAction($arItem["ID"], $arItem["EDIT_ADD"], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_ADD"));
+                        // экшен удаления элемента
+                        $this->AddDeleteAction($arItem["ID"], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), ["CONFIRM" => "Удалить?"]);
+                        ?>
+                        <div class="col-12 col-md-6 comic-list" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                             <div class="d-flex align-items-stretch">
                                 <div class="flex-shrink-0 me-3">
                                     <a href="<?=$arItem["LINK"]?>" class="d-block rounded fast-view-layer fast-view-layer-sm" data-fast-view="/fast_view/39444">
@@ -156,11 +162,7 @@
         </div>
     </div>
 
-    <?$APPLICATION->IncludeComponent(
-        "bitrix:system.pagenavigation",
-        "modern",
-        Array()
-    );?>
+
 
     <?/*
     $navStr = $arResult['NAV']->GetPageNavStringEx($navComponentObject, "Страницы:", "round");
