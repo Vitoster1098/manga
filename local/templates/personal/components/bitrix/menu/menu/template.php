@@ -42,7 +42,7 @@ $menuBlockId = "catalog_menu_".$this->randString();
                                 <a href="<?=$arItem["LINK"]?>" class="dropdown-item active justify-content-between">
                                         <span class="d-flex align-items-center">
                                             <svg class="c-icon c-icon-list dropdown-item-icon" width="16" height="16">
-                                                <use xlink:href="#icon-list"></use>
+                                                <use xlink:href="#<?=$arItem["PARAMS"]["ICON"]?>"></use>
                                             </svg>
                                             <?=$arItem["TEXT"]?>
                                         </span>
