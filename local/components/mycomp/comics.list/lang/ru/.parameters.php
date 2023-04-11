@@ -13,4 +13,4 @@ $MESS["EXAMPLE_COMPSIMPLE_PROP_IBLOCK_ID"] = "Инфоблок";
 $MESS["EXAMPLE_COMPSIMPLE_PROP_SECTION_IDS"] = "ID разделов через запятую";
 
 $MESS["EXAMPLE_COMPSIMPLE_COMICS"] = "Инфоблок комиксов";
-$MESS["EXAMPLE_COMPSIMPLE_COUNTS"] = "Количество элементов на странице";
+$MESS["EXAMPLE_COMPSIMPLE_ITEMS"] = "Количество элементов на странице";

@@ -50,11 +50,13 @@ $arComponentParameters = [
             "VALUES" => $arIBlock,
             "REFRESH" => "Y",
         ],
+        //Количество элементов на странице
         "ITEMS" => [
             "PARENT" => "SETTINGS",
             "NAME" => GetMessage('EXAMPLE_COMPSIMPLE_ITEMS'),
             "TYPE" => "INT",
             "ADDITIONAL_VALUES" => "N",
+            "DEFAULT_VALUE" => "20"
         ],
     ],
 ];

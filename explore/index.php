@@ -1,6 +1,5 @@
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Каталог");?>
-<?$APPLICATION->IncludeComponent(
+$APPLICATION->SetTitle("Каталог");?><?$APPLICATION->IncludeComponent(
 	"mycomp:filtermanga",
 	"",
 	Array(
@@ -21,15 +20,13 @@ $APPLICATION->SetTitle("Каталог");?>
 <?$APPLICATION->IncludeComponent(
 	"mycomp:comics.list",
 	".default",
-	array(
+	Array(
 		"CACHE_TIME" => "3600",
 		"CACHE_TYPE" => "A",
+		"COMICS" => "9",
+		"COMPONENT_TEMPLATE" => ".default",
 		"IBLOCK_ID" => "9",
 		"IBLOCK_TYPE" => "manga",
-		"COMPONENT_TEMPLATE" => ".default",
-		"COMICS" => "9",
 		"ITEMS" => "48"
-	),
-	false
-);?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+	)
+);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

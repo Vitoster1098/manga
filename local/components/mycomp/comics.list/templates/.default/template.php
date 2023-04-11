@@ -5,7 +5,7 @@
         <div class="card-header">
             <h1 class="card-title">
                 <?=$this->title?>
-                <span class="badge bg-primary ms-1">14418</span>
+                <span class="badge bg-primary ms-1"><?=count($arResult["COMICS"])?></span>
             </h1>
             <div class="card-options">
                 <div class="d-block d-sm-none" data-turbo="true">
@@ -120,18 +120,18 @@
                                         <div
                                             class="cover cover-list"
                                             data-lazy-load=""
-                                            data-background-image="<?=$arItem["PICTURE_PREVIEW"]?>"
+                                            data-background-image="<?=$arItem["PREVIEW_PICTURE"]?>"
                                             data-loaded="true"
-                                            style='background-image: url("<?=$arItem["PICTURE_PREVIEW"]?>");'
+                                            style='background-image: url("<?=$arItem["PREVIEW_PICTURE"]?>");'
                                         ></div>
 
                                         <div class="fast-view-layer-loader"></div>
                                         <div
                                             class="fast-view-layer-scale"
                                             data-lazy-load=""
-                                            data-background-image="<?=$arItem["PICTURE_PREVIEW"]?>"
+                                            data-background-image="<?=$arItem["PREVIEW_PICTURE"]?>"
                                             data-loaded="true"
-                                            style='background-image: url("<?=$arItem["PICTURE_PREVIEW"]?>");'
+                                            style='background-image: url("<?=$arItem["PREVIEW_PICTURE"]?>");'
                                         ></div>
                                         <div class="fast-view-layer-text fs-0 py-1">Быстрый просмотр</div>
                                     </a>
@@ -140,10 +140,12 @@
                                 <div class="d-flex flex-column flex-fill justify-content-center">
                                     <div class="text-line-clamp">
                                         <a class="fw-medium fs-2" href="<?=$arItem["LINK"]?>">
-                                            <?=$arItem["NAME"]?>
+                                            <?=$arItem["TITLE"]?>
                                         </a>
                                     </div>
-                                    <div class="text-muted mt-1 fs-1"><?=$arItem["DATE"]?>, <?=$arItem["CATEGORY"]?></div>
+                                    <div class="text-muted mt-1 fs-1">
+                                        <?=substr($arItem["UPDATED_AT"], 6)?>, <?=$arItem["CATEGORY"]?>
+                                    </div>
                                 </div>
                             </div>
                             <div class="border-bottom mt-3 comic-list-break"></div>
@@ -154,15 +156,18 @@
         </div>
     </div>
 
-    <div data-turbo="true" data-turbo-pagination="true">
-        <ul class="pagination">
-            <li class="page-item disabled"><span class="page-link">←</span></li>
-            <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
-            <li class="page-item"><a class="page-link" href="/explore?page=2">2</a></li>
-            <li class="page-item"><a class="page-link" href="/explore?page=3">3</a></li>
-            <li class="page-item disabled"><span class="page-link">…</span></li>
-            <li class="page-item"><a class="page-link" href="/explore?page=301">301</a></li>
-            <li class="page-item"><a class="page-link" href="/explore?page=2" rel="next">→</a></li>
-        </ul>
-    </div>
+    <?$APPLICATION->IncludeComponent(
+        "bitrix:system.pagenavigation",
+        "modern",
+        Array()
+    );?>
+
+    <?/*
+    $navStr = $arResult['NAV']->GetPageNavStringEx($navComponentObject, "Страницы:", "round");
+    */?>
+    <?#$navStr;?>
+
+    <?/*if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
+        <?=$arResult["NAV_STRING"]?>
+    <?endif;*/?>
 </div>
