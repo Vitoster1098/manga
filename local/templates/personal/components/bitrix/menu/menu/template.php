@@ -37,7 +37,6 @@ $menuBlockId = "catalog_menu_".$this->randString();
             <div class="d-flex align-items-stretch">
                 <div class="header-nav-side p-2">
                     <div class="d-flex flex-column align-items-stretch">
-
                         <?foreach ($arResult["ALL_ITEMS"] as $arItem):?>
                             <?if ($arItem["TEXT"] == 'Каталог'):?>
                                 <a href="<?=$arItem["LINK"]?>" class="dropdown-item active justify-content-between">
@@ -54,8 +53,8 @@ $menuBlockId = "catalog_menu_".$this->randString();
                             <?else:?>
                                 <a href="<?=$arItem["LINK"]?>" class="dropdown-item justify-content-between">
                                     <span class="d-flex align-items-center">
-                                        <svg class="c-icon c-icon-bullhorn dropdown-item-icon" width="16" height="16">
-                                            <use xlink:href="#icon-bullhorn"></use>
+                                        <svg class="c-icon <?=$arItem["ICON"]?> dropdown-item-icon" width="16" height="16">
+                                            <use xlink:href="#<?=$arItem["PARAMS"]["ICON"]?>"></use>
                                         </svg>
                                         <?=$arItem["TEXT"]?>
                                     </span>

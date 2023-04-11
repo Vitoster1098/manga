@@ -3,58 +3,66 @@ $aMenuLinks = Array(
 	Array(
 		"Каталог", 
 		"/explore/", 
-		Array(), 
-		Array(), 
-		"" 
+		Array(),
+		Array("ICON" => "icon-list",),
+		"",
+
 	),
 	Array(
 		"Издания", 
 		"/publishers/", 
-		Array(), 
-		Array(), 
-		"" 
+		Array(),
+		Array("ICON" => "icon-bullhorn",),
+		"",
+
 	),
 	Array(
 		"Переводчики", 
 		"/translators/", 
 		Array(), 
-		Array(), 
-		"" 
+		Array("ICON" => "icon-m-translates",),
+		"",
+
 	),
 	Array(
 		"Обновления", 
 		"/feed/", 
 		Array(), 
-		Array(), 
-		"" 
+		Array("ICON" => "icon-users",),
+		"",
+
 	),
 	Array(
 		"Авторы", 
 		"/authors/", 
 		Array(), 
-		Array(), 
-		"" 
+		Array("ICON" => "icon-home",),
+		"",
+
 	),
 	Array(
 		"Коллекции", 
 		"/collections/", 
 		Array(), 
-		Array(), 
-		"" 
+		Array("ICON" => "icon-star-fill",),
+		"",
+
 	),
 	Array(
 		"Жанры", 
 		"/genres/", 
 		Array(), 
-		Array(), 
-		"" 
+		Array("ICON" => "icon-mask",),
+		"",
+
 	),
 	Array(
 		"Тэги", 
 		"/tags/", 
 		Array(), 
-		Array(), 
-		"" 
+		Array("ICON" => "icon-label",),
+		"",
+
 	)
 );
 ?>
