@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-header">
             <h1 class="card-title">
-                <?=$this->title?>
+                <?$APPLICATION->ShowTitle(false)?>
                 <span class="badge bg-primary ms-1"><?=count($arResult["COMICS"])?></span>
             </h1>
             <div class="card-options">
