@@ -40,6 +40,8 @@ function translit($value): string {
 
 global $USER;
 $counter = 0;
+\Bitrix\Main\Loader::includeModule('iblock');
+
 for ($i = 0; $i < count($countries) - 1; $i++) {
     $el = new CIBlockElement;
     $arFields = [

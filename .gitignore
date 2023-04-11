@@ -1,3 +1,4 @@
-bitrix/
+bitrix
 node_modules/
 .idea
+!local/templates/personal/components/bitrix/
